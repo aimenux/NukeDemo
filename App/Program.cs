@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Lib;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -32,6 +33,7 @@ namespace App
                 .ConfigureServices((hostingContext, services) =>
                 {
                     services.AddHostedService<DummyHostedService>();
+                    services.AddSingleton<IDummyService,DummyService>();
                 })
                 .UseConsoleLifetime();
 
